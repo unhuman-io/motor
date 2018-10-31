@@ -1,0 +1,1 @@
+install(DIRECTORY matlab_c_api_examples DESTINATION sdk)

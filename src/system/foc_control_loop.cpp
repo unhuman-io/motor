@@ -3,8 +3,8 @@
 #include "foc_control_loop.h"
 #include "control/foc.h"
 
-FOCControlLoop::FOCControlLoop() {
-    foc_ = new FOC();
+FOCControlLoop::FOCControlLoop(hal::PWM *pwm) : pwm_(pwm) {
+    foc_ = new FOC(pwm_);
     FOCParam foc_param = {};
     foc_->set_param(foc_param);
 }

@@ -1,0 +1,5 @@
+add_library(cpp_api SHARED motor.cpp motor.h)
+target_include_directories(cpp_api PUBLIC .)
+target_link_libraries(cpp_api messages)
+install(FILES motor.h DESTINATION sdk/cpp/include)
+install(TARGETS cpp_api DESTINATION sdk/cpp)

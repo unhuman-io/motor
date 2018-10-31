@@ -3,9 +3,13 @@
 
 #include "messages.h"
 
+namespace hal {
+    class PWM;
+}
+
 class FOC {
 public:
-    FOC();
+    FOC(hal::PWM *pwm);
     //TODO:  maybe template these functions
     void set_param(const FOCParam &param) { param_ = param; }
     void get_param(FOCParam *param) const { *param = param_;}
@@ -15,6 +19,7 @@ public:
 private:
     FOCParam param_;
     FOCCommand command_;
+    hal::PWM *pwm_;
 };
 
 

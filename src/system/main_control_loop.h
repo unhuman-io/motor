@@ -6,7 +6,8 @@
 
 
 class MainControlLoop : public PeriodicLoop {
-
+public:
+    virtual void step();
 };
 
 

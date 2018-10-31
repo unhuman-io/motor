@@ -1,4 +1,4 @@
-*Motor* is open source motor control firmware that enables high quality servo motor control for advanced robotics projects.
+*MotorSimulator* is open source motor control firmware that enables high quality servo motor control for advanced robotics projects.
 
 The main goals of the code are:
 * fixed frequency interrupt based foc and main control loops

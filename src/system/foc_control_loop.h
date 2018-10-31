@@ -7,15 +7,20 @@
 
 class FOC;
 
+namespace hal {
+    class PWM;
+}
+
 /// The high speed control loop
 class FOCControlLoop : public PeriodicLoop {
 public:
-    FOCControlLoop();
+    FOCControlLoop(hal::PWM *pwm);
     virtual ~FOCControlLoop();
     virtual void step();
 
 private:
     FOC *foc_;
+    hal::PWM *pwm_;
 };
 
 
