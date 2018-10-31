@@ -20,7 +20,10 @@ int main() {
     main_control_loop.init();
     foc_control_loop.init();
 
-    hal::atomic_memcpy(1);
+
+    for(int i=0; i<10; i++) {
+        foc_control_loop.step();
+    }
 
 
     return 0;

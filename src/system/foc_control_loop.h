@@ -5,8 +5,17 @@
 
 #include "periodic_loop.h"
 
-class FOCControlLoop : public PeriodicLoop {
+class FOC;
 
+/// The high speed control loop
+class FOCControlLoop : public PeriodicLoop {
+public:
+    FOCControlLoop();
+    virtual ~FOCControlLoop();
+    virtual void step();
+
+private:
+    FOC *foc_;
 };
 
 

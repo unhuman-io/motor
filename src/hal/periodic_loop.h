@@ -7,6 +7,7 @@
 class PeriodicLoop {
 public:
     virtual void init();
+    virtual void step() {}
 };
 
 
