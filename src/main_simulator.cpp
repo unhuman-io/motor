@@ -9,7 +9,7 @@
 int main() {
 //    el::Loggers::addFlag(el::LoggingFlag::ColoredTerminalOutput);
 
-    System system;
+    System *system = new System;
 
 //    // No FOC simulation
 //    for(int i=0; i<10; i++) {
@@ -28,7 +28,9 @@ int main() {
 //        motor_sim_voltage.step();
 //    }
 
-    std::this_thread::sleep_for(std::chrono::seconds(1));
+    std::this_thread::sleep_for(std::chrono::seconds(1000));
+
+    delete system;
 
     return 0;
 }

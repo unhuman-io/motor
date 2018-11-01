@@ -4,18 +4,18 @@
 #define MOTOR_PERIODICLOOP_H
 
 #include <cstdint>
-#include <iostream>
+#include <atomic>
+#include <string>
 
 #include <thread>
-#include <atomic>
 
 class PeriodicLoop {
 public:
-    PeriodicLoop() : loop_count_(0), keep_running_(true) { std::cout << "p const\n"; }
-    ~PeriodicLoop();
+    PeriodicLoop() : loop_count_(0), keep_running_(true) {}
+    virtual ~PeriodicLoop();
     virtual void init(int32_t frequency_hz);
     virtual void step();
-    void test();
+    virtual std::string name() { return "PeriodicLoop"; }
     std::atomic_bool keep_running_;
 private:
     uint64_t loop_count_;

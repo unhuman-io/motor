@@ -5,7 +5,7 @@
 #include "easylogging++.h"
 
 void MotorSimulatorVoltage::step() {
-    LOG(INFO) << pwm_->get_voltage()[0] << " " << pwm_->get_voltage()[1] << " " << pwm_->get_voltage()[2];
+    std::ostringstream s; s << pwm_->get_voltage()[0] << " " << pwm_->get_voltage()[1] << " " << pwm_->get_voltage()[2];
+    logging::DEBUG(s.str());
     const float *v_dq = voltage_dq(pwm_->get_voltage());
-    LOG(INFO) << v_dq[0] << " " << v_dq[1];
 }

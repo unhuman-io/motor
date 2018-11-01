@@ -7,6 +7,7 @@
 class SystemUpdateLoop : public PeriodicLoop {
 public:
     virtual void init();
+    virtual std::string name() { return "SystemUpdateLoop"; }
 };
 
 

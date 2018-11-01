@@ -11,21 +11,27 @@
 #include "messages.h"
 #include "easylogging++.h"
 
-//INITIALIZE_EASYLOGGINGPP
-
 System::System() {
- //   el::Loggers::
+//    el::Loggers::addFlag(el::LoggingFlag::ColoredTerminalOutput);
+    //todo pwm goes away
     hal::PWM pwm;
     //   MotorSimulator motor;
     //   MotorSimulatorVoltage motor_sim_voltage(&pwm);
 
-    SystemUpdateLoop system_update_loop;
-    MainControlLoop main_control_loop;
-    FOCControlLoop foc_control_loop(&pwm);
-    Communication communication;
-    MotorStatus motor_status;
+    system_update_loop_ = new SystemUpdateLoop;
+    main_control_loop_ = new MainControlLoop;
+    foc_control_loop_ = new FOCControlLoop(&pwm);
+//    communication_ = new Communication;
+//    //MotorStatus motor_status;
+//
+    system_update_loop_->init();
+    main_control_loop_->init(10);
+    foc_control_loop_->init(100);
+}
 
-    system_update_loop.init();
-    main_control_loop.init(3);
-    foc_control_loop.init(10);
+System::~System() {
+    delete system_update_loop_;
+    delete main_control_loop_;
+    delete foc_control_loop_;
+    logging::WARN("~System()");
 }

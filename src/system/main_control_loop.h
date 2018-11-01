@@ -8,6 +8,7 @@
 class MainControlLoop : public PeriodicLoop {
 public:
     virtual void step();
+    virtual std::string name() { return "MainControlLoop"; }
 };
 
 

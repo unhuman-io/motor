@@ -17,6 +17,7 @@ public:
     FOCControlLoop(hal::PWM *pwm);
     virtual ~FOCControlLoop();
     virtual void step();
+    virtual std::string name() { return "FOCControlLoop"; }
 
 private:
     FOC *foc_;

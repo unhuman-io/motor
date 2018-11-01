@@ -5,7 +5,7 @@
 
 class Motor {
 public:
-    virtual ~Motor() {}
+    virtual ~Motor();
     void send_message(Message *m) {}
     float get_message() { return 1.1; }
 

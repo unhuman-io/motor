@@ -11,7 +11,6 @@ void FOC::set_command(const FOCCommand &command) {
 }
 
 void FOC::step() {
-    LOG(INFO) << "FOC::step()";
     static int i = 0;
     pwm_->set_voltage(command_.i_q, i++, 2);
 }
