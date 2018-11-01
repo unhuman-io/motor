@@ -5,10 +5,11 @@
 
 class System;
 
-class MotorSimulator : public Motor {
+class MotorSimulator1 : public Motor {
 public:
-    virtual ~MotorSimulator();
-    MotorSimulator();
+    virtual ~MotorSimulator1();
+    MotorSimulator1();
+    virtual float get_message();
 private:
     System *system_;
 };

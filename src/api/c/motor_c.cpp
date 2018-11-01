@@ -9,7 +9,7 @@ extern "C" {
     }
 
     HMotor * create_motor_simulator() {
-        return reinterpret_cast<HMotor*>(new MotorSimulator);
+        return reinterpret_cast<HMotor*>(new MotorSimulator1);
     }
 
     void send_message(HMotor *motor, Message *message) {
