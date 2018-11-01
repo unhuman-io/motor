@@ -4,7 +4,7 @@
 namespace hal {
 
     void atomic_memcpy(void *dest, const void *src, size_t n) {
-        LOG(INFO) << "atomic_memcpy";
+        LOG(DEBUG) << "atomic_memcpy";
     }
 
 }

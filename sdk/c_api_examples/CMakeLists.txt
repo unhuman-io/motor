@@ -1,0 +1,3 @@
+add_executable(c_api_example c_api_example.c)
+target_link_libraries(c_api_example c_api)
+install(TARGETS c_api_example DESTINATION sdk/c_api_examples)

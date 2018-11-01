@@ -1,10 +1,15 @@
 #include "motor_c.h"
 #include "motor.h"
+#include "motor_simulator.h"
 
 extern "C" {
 
     HMotor * create_motor() {
         return reinterpret_cast<HMotor*>(new Motor);
+    }
+
+    HMotor * create_motor_simulator() {
+        return reinterpret_cast<HMotor*>(new MotorSimulator);
     }
 
     void send_message(HMotor *motor, Message *message) {

@@ -4,4 +4,5 @@
 
 void SystemUpdateLoop::init() {
     LOG(INFO) << "SystemUpdateLoop::init()";
+    PeriodicLoop::init(5);
 }

@@ -14,6 +14,7 @@ FOCControlLoop::~FOCControlLoop() {
 }
 
 void FOCControlLoop::step() {
+    PeriodicLoop::step();
     FOCCommand foc_command = {};
     foc_->set_command(foc_command);
     foc_->step();
