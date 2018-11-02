@@ -3,13 +3,13 @@
 #include "motor_simulator.h"
 
 extern "C" {
-
-    HMotor * create_motor() {
-        return reinterpret_cast<HMotor*>(new Motor);
+namespace unhuman {
+    HMotor *create_motor() {
+        return reinterpret_cast<HMotor *>(new Motor);
     }
 
-    HMotor * create_motor_simulator() {
-        return reinterpret_cast<HMotor*>(new MotorSimulator1);
+    HMotor *create_motor_simulator() {
+        return reinterpret_cast<HMotor *>(new MotorSimulator);
     }
 
     void send_message(HMotor *motor, Message *message) {
@@ -23,4 +23,5 @@ extern "C" {
     void destroy_motor(HMotor *motor) {
         delete reinterpret_cast<Motor *>(motor);
     }
+}
 }

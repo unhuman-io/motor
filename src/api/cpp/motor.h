@@ -3,13 +3,16 @@
 
 #include "messages.h"
 
-class Motor {
-public:
-    virtual ~Motor();
-    virtual void send_message(Message *m) {}
-    virtual float get_message() { return 1.1; }
+namespace unhuman {
+    class Motor {
+    public:
+        virtual ~Motor();
 
-};
+        virtual void send_message(Message *m) {}
 
+        virtual float get_message() { return 1.1; }
+
+    };
+}
 
 #endif //MOTOR_MOTOR_H

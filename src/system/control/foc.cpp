@@ -4,13 +4,11 @@
 
 #include "hal_pwm.h"
 
-FOC::FOC(hal::PWM *pwm) : command_(), param_(), pwm_(pwm) {}
+FOC::FOC(hal::PWM *pwm) : pwm_(pwm) {}
 
-void FOC::set_command(const FOCCommand &command) {
-    hal::atomic_memcpy(&command_, &command, sizeof(command_));
-}
-
-void FOC::step() {
+void FOC::update() {
     static int i = 0;
+    status_.desired.i_d = command_.i_d;
+    status_.desired.i_q = command_.i_q;
     pwm_->set_voltage(command_.i_q, i++, 2);
 }

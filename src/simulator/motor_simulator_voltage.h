@@ -9,8 +9,8 @@ namespace hal {
 
 class MotorSimulatorVoltage : public MotorSimulator {
 public:
-    MotorSimulatorVoltage(hal::PWM *pwm) : pwm_(pwm) {}
-    virtual void step();
+    MotorSimulatorVoltage(System &system, hal::PWM *pwm) : MotorSimulator(system), pwm_(pwm) {}
+    virtual void update();
 private:
     hal::PWM *pwm_;
 };

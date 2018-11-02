@@ -1,4 +1,6 @@
 #include "motor.h"
 
-Motor::~Motor() {
+namespace unhuman {
+    Motor::~Motor() {
+    }
 }

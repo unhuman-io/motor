@@ -4,6 +4,8 @@
 #define MOTOR_FOCCONTROLLOOP_H
 
 #include "periodic_loop.h"
+#include "periodic_communication.h"
+#include "messages.h"
 
 class FOC;
 
@@ -12,11 +14,11 @@ namespace hal {
 }
 
 /// The high speed control loop
-class FOCControlLoop : public PeriodicLoop {
+class FOCControlLoop : public PeriodicLoop, public PeriodicCommunication<FOCControlCommand, FOCControlParam, FOCControlStatus> {
 public:
     FOCControlLoop(hal::PWM *pwm);
     virtual ~FOCControlLoop();
-    virtual void step();
+    virtual void update();
     virtual std::string name() { return "FOCControlLoop"; }
 
 private:

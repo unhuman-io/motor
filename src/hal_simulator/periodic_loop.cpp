@@ -8,7 +8,7 @@
 
 void run(PeriodicLoop *p, uint32_t interval_ns) {
     while(p->keep_running_) {
-        p->step();
+        p->update();
         std::this_thread::sleep_for(std::chrono::nanoseconds(interval_ns));
     }
 }
@@ -18,6 +18,7 @@ PeriodicLoop::~PeriodicLoop() {
     t->join();
 }
 
+
 void PeriodicLoop::init(int32_t frequency_hz) {
 //    LOG(INFO) << "PeriodicLoop::init(" << frequency_hz << ")";
     int32_t interval_ns = 1e9*1.0/frequency_hz;
@@ -26,7 +27,7 @@ void PeriodicLoop::init(int32_t frequency_hz) {
     //t->detach();
 }
 
-void PeriodicLoop::step() {
-    std::ostringstream s; s << name() << "::step(), loop_count_: " << loop_count_++;
+void PeriodicLoop::update() {
+    std::ostringstream s; s << name() << "::update(), loop_count_: " << loop_count_++;
     logging::INFO(s.str());
 }

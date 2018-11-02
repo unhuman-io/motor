@@ -1,14 +1,16 @@
 #include "motor_simulator.h"
 #include "system.h"
 
-MotorSimulator1::MotorSimulator1() {
-    system_ = new System();
-}
+namespace unhuman {
+    MotorSimulator::MotorSimulator() {
+        system_ = new System();
+    }
 
-MotorSimulator1::~MotorSimulator1() {
-    delete system_;
-}
+    MotorSimulator::~MotorSimulator() {
+        delete system_;
+    }
 
-float MotorSimulator1::get_message() {
-    return system_->get_status().position;
+    float MotorSimulator::get_message() {
+        return system_->get_status().position;
+    }
 }

@@ -5,14 +5,18 @@
 
 class System;
 
-class MotorSimulator1 : public Motor {
-public:
-    virtual ~MotorSimulator1();
-    MotorSimulator1();
-    virtual float get_message();
-private:
-    System *system_;
-};
+namespace unhuman {
+    class MotorSimulator : public Motor {
+    public:
+        virtual ~MotorSimulator();
 
+        MotorSimulator();
+
+        virtual float get_message();
+
+    private:
+        System *system_;
+    };
+}
 
 #endif //MOTOR_MOTOR_SIMULATOR_H

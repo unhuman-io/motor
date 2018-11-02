@@ -13,8 +13,9 @@ class PeriodicLoop {
 public:
     PeriodicLoop() : loop_count_(0), keep_running_(true) {}
     virtual ~PeriodicLoop();
-    virtual void init(int32_t frequency_hz);
-    virtual void step();
+    void init(int32_t frequency_hz);
+    virtual void update();
+
     virtual std::string name() { return "PeriodicLoop"; }
     std::atomic_bool keep_running_;
 private:
