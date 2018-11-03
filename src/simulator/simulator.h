@@ -6,20 +6,32 @@
 #include "messages.h"
 
 class System;
+class BrushlessMotorSimulation;
 
-class MotorSimulator : public PeriodicLoop, public PeriodicCommunication<MotorSimulatorCommand, MotorSimulatorParam, MotorSimulatorStatus> {
+class Simulator
+        : public PeriodicLoop,
+          public PeriodicCommunication<SimulatorCommand, SimulatorParam, SimulatorStatus> {
 public:
-    MotorSimulator(System &system) : system_(system), position_(), velocity_(), i_d_(), i_q_() {}
+    Simulator(System &system);
+    ~Simulator();
+
     void init(int32_t frequency_hz);
+
     void set_current(float i_d, float i_q);
+
     virtual void update();
+
     float get_position() const;
+
     float get_velocity() const;
+
 private:
     float i_d_, i_q_;
     float position_, velocity_;
     System &system_;
+    BrushlessMotorSimulation *motor_simulation_;
 };
+
 
 
 #endif //MOTOR_HAL_MOTOR_H

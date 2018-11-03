@@ -9,8 +9,8 @@ add_subdirectory(system)
 add_subdirectory(simulator)
 add_subdirectory(api)
 
-add_executable(motor_simulator main_simulator.cpp)
-target_link_libraries(motor_simulator PRIVATE simulator system easylogging hal_simulator )
+add_executable(main_simulator main_simulator.cpp)
+target_link_libraries(main_simulator PRIVATE cpp_api easylogging)
 
 #TODO: motor_m4 will be the version for Cortex M4
 #add_executable(motor_m4 main_simulator.cpp)

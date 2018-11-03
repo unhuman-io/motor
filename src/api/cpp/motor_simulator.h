@@ -4,6 +4,7 @@
 #include "motor.h"
 
 class System;
+class Simulator;
 
 namespace unhuman {
     class MotorSimulator : public Motor {
@@ -16,6 +17,7 @@ namespace unhuman {
 
     private:
         System *system_;
+        Simulator *simulator_;
     };
 }
 

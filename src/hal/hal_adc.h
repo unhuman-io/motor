@@ -6,9 +6,8 @@
 namespace hal {
     class ADC {
     public:
-        void get_adc();
-    private:
-        uint16_t adc_result_[24];
+        void get_adc() const;
+        void set_adc();             ///< Used only for simulation
     };
 }
 

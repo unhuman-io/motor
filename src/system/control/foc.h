@@ -6,16 +6,18 @@
 
 namespace hal {
     class PWM;
+    class ADC;
 }
 
 class FOC : public PeriodicCommunication<FOCCommand, FOCParam, FOCStatus> {
 public:
-    FOC(hal::PWM *pwm);
+    FOC(hal::PWM *pwm, const hal::ADC &adc);
     //TODO:  maybe template these functions
     void update();
 
 private:
     hal::PWM *pwm_;
+    const hal::ADC &adc_;
 };
 
 

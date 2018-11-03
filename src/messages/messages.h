@@ -29,6 +29,7 @@ typedef struct {
 
 typedef struct {
     float position, velocity;
+    float v_abc[3];
 } MotorStatus;
 
 typedef struct {
@@ -75,14 +76,14 @@ typedef struct {
 
 typedef struct {
     int reserved;
-} MotorSimulatorCommand;
+} SimulatorCommand;
 
 typedef struct {
     int reserved;
-} MotorSimulatorParam;
+} SimulatorParam;
 
 typedef struct {
-    int reserved;
-} MotorSimulatorStatus;
+    MotorStatus motor_status;
+} SimulatorStatus;
 
 #endif

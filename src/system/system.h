@@ -10,6 +10,7 @@ class Communication;
 
 namespace hal {
     class PWM;
+    class ADC;
 }
 
 class System {
@@ -23,7 +24,9 @@ private:
     FOCControlLoop *foc_control_loop_;
     Communication *communication_;
     hal::PWM *pwm_;
+    hal::ADC *adc_;
     MotorStatus motor_status_;
+    friend class Simulator;
 };
 
 #endif //MOTOR_SYSTEM_H
