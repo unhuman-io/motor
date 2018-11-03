@@ -46,6 +46,7 @@ void Simulator::update() {
     update_status();
     // update sensors
     system_.adc_->set_adc();
+//    system_.motor_encoder->set_value(status_.position);
 }
 
 float Simulator::get_position() const { return position_; }

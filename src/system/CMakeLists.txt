@@ -6,6 +6,9 @@ add_library(system
             foc_control_loop.cpp foc_control_loop.h
             communication.cpp communication.h
             control/foc.cpp control/foc.h
-            system.cpp system.h)
+            system.cpp system.h
+            sensor/encoder.cpp sensor/encoder.h
+            sensor/qep_encoder.cpp sensor/qep_encoder.h
+            sensor/sensor.cpp sensor/sensor.h)
 target_link_libraries(system hal messages easylogging)
 target_include_directories(system PUBLIC . control/)
