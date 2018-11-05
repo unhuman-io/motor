@@ -14,10 +14,12 @@ namespace hal {
     class ADC;
 }
 
+class Encoder;
+
 /// The high speed control loop
 class FOCControlLoop : public PeriodicLoop, public PeriodicCommunication<FOCControlCommand, FOCControlParam, FOCControlStatus> {
 public:
-    FOCControlLoop(hal::PWM *pwm, const hal::ADC &adc);
+    FOCControlLoop(hal::PWM *pwm, const hal::ADC &adc, const Encoder &encoder);
     virtual ~FOCControlLoop();
     virtual void update();
     virtual std::string name() { return "FOCControlLoop"; }

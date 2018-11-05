@@ -4,7 +4,11 @@
 #include "sensor.h"
 
 class Encoder : public Sensor {
-
+public:
+    float get_position() const { return position_; }
+    float set_position(float position) { position_ = position; }
+private:
+    float position_;
 };
 
 

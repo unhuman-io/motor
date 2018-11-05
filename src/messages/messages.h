@@ -25,6 +25,9 @@ typedef struct {
     struct {
         float i_d, i_q;
     } desired;
+    struct {
+        float position;
+    } measured;
 } FOCStatus;
 
 typedef struct {

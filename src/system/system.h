@@ -7,6 +7,7 @@ class SystemUpdateLoop;
 class MainControlLoop;
 class FOCControlLoop;
 class Communication;
+class Encoder;
 
 namespace hal {
     class PWM;
@@ -25,6 +26,7 @@ private:
     Communication *communication_;
     hal::PWM *pwm_;
     hal::ADC *adc_;
+    Encoder *motor_encoder_;
     MotorStatus motor_status_;
     friend class Simulator;
 };

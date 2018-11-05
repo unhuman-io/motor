@@ -4,6 +4,7 @@
 #include "system.h"
 #include "hal_adc.h"
 #include "brushless_motor_simulation.h"
+#include "sensor/encoder.h"
 
 
 Simulator::Simulator(System &system) : system_(system), position_(), velocity_(), i_d_(),
@@ -46,7 +47,7 @@ void Simulator::update() {
     update_status();
     // update sensors
     system_.adc_->set_adc();
-//    system_.motor_encoder->set_value(status_.position);
+    system_.motor_encoder_->set_position(status.position);
 }
 
 float Simulator::get_position() const { return position_; }

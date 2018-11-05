@@ -9,15 +9,22 @@ namespace hal {
     class ADC;
 }
 
+class PIController;
+
+class Encoder;
+
 class FOC : public PeriodicCommunication<FOCCommand, FOCParam, FOCStatus> {
 public:
-    FOC(hal::PWM *pwm, const hal::ADC &adc);
+    FOC(hal::PWM *pwm, const hal::ADC &adc, const Encoder &);
     //TODO:  maybe template these functions
     void update();
 
 private:
     hal::PWM *pwm_;
     const hal::ADC &adc_;
+    const Encoder &encoder_;
+    uint16_t num_poles_ = 1;
+    PIController *pi_id_, *pi_iq_;
 };
 
 

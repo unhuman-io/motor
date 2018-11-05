@@ -6,6 +6,7 @@ add_library(system
             foc_control_loop.cpp foc_control_loop.h
             communication.cpp communication.h
             control/foc.cpp control/foc.h
+            control/control_fun.cpp control/control_fun.h
             system.cpp system.h
             sensor/encoder.cpp sensor/encoder.h
             sensor/qep_encoder.cpp sensor/qep_encoder.h
