@@ -6,7 +6,7 @@
 #include "messages.h"
 
 class System;
-class BrushlessMotorSimulation;
+class MotorSimulation;
 
 class Simulator
         : public PeriodicLoop,
@@ -17,7 +17,6 @@ public:
 
     void init(int32_t frequency_hz);
 
-    void set_current(float i_d, float i_q);
 
     virtual void update();
 
@@ -25,11 +24,13 @@ public:
 
     float get_velocity() const;
 
+    void send_message(Message *m);
+
 private:
-    float i_d_, i_q_;
     float position_, velocity_;
     System &system_;
-    BrushlessMotorSimulation *motor_simulation_;
+    MotorSimulation *motor_simulation_;
+
 };
 
 

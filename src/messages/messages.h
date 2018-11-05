@@ -4,6 +4,8 @@
 
 #include <stdint.h>
 
+#define MAX_DATA_LENGTH 120 // bytes
+
 typedef struct {
     float kp;
     float ki;
@@ -33,10 +35,22 @@ typedef struct {
 typedef struct {
     float position, velocity;
     float v_abc[3];
+    FOCStatus foc_status;
 } MotorStatus;
 
 typedef struct {
-    int16_t length;
+    uint16_t type;       ///< \sa CommandType
+    uint8_t data[MAX_DATA_LENGTH - 2];
+} MotorCommand;
+
+enum MessageType {
+    MOTOR_COMMAND = 1,
+};
+
+typedef struct {
+    uint16_t length;
+    uint16_t type;      ///< \sa MessageType
+    uint8_t data[MAX_DATA_LENGTH];
 } Message;
 
 

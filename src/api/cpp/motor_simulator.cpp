@@ -19,4 +19,8 @@ namespace unhuman {
         simulator_->get_status(&status);
         return status.motor_status.position;
     }
+
+    void MotorSimulator::send_message(Message *m) {
+        simulator_->send_message(m);
+    }
 }

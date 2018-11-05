@@ -15,13 +15,14 @@ public:
     virtual ~PeriodicLoop();
     void init(int32_t frequency_hz);
     virtual void update();
+    float get_dt() const;
 
     virtual std::string name() { return "PeriodicLoop"; }
     std::atomic_bool keep_running_;
 private:
     uint64_t loop_count_;
     std::thread *t;
-
+    float dt_;
 };
 
 

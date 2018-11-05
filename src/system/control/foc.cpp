@@ -9,7 +9,15 @@
 
 #include <cmath>
 
-FOC::FOC(hal::PWM *pwm, const hal::ADC &adc, const Encoder &encoder) : pwm_(pwm), adc_(adc), encoder_(encoder) {}
+FOC::FOC(hal::PWM *pwm, const hal::ADC &adc, const Encoder &encoder) : pwm_(pwm), adc_(adc), encoder_(encoder) {
+    pi_id_ = new PIController();
+    pi_iq_ = new PIController();
+}
+
+FOC::~FOC() {
+    delete pi_id_;
+    delete pi_iq_;
+}
 
 #define SQRT3 (float) std::sqrt(3)
 static const float Kc[2][3] = {2.0/3 -1.0/3 -1.0/3,

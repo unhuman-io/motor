@@ -14,6 +14,7 @@ namespace unhuman {
         MotorSimulator();
 
         virtual float get_message();
+        virtual void send_message(Message *m);
 
     private:
         System *system_;

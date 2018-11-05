@@ -16,6 +16,7 @@ class Encoder;
 class FOC : public PeriodicCommunication<FOCCommand, FOCParam, FOCStatus> {
 public:
     FOC(hal::PWM *pwm, const hal::ADC &adc, const Encoder &);
+    ~FOC();
     //TODO:  maybe template these functions
     void update();
 

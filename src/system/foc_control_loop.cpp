@@ -15,6 +15,9 @@ FOCControlLoop::~FOCControlLoop() {
 
 void FOCControlLoop::update() {
     PeriodicLoop::update();
+    update_command();
     foc_->set_command(command_.command);
     foc_->update();
+    foc_->get_status(&status_.status);
+    update_status();
 }

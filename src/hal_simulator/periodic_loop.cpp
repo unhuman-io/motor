@@ -18,10 +18,13 @@ PeriodicLoop::~PeriodicLoop() {
     t->join();
 }
 
+float PeriodicLoop::get_dt() const {
+    return dt_;
+}
 
 void PeriodicLoop::init(int32_t frequency_hz) {
-//    LOG(INFO) << "PeriodicLoop::init(" << frequency_hz << ")";
-    int32_t interval_ns = 1e9*1.0/frequency_hz;
+    dt_ = 1.0/frequency_hz;
+    int32_t interval_ns = 1e9*dt_;
     std::cout << this << std::endl;
     t = new std::thread(run, this, interval_ns);
     //t->detach();
@@ -29,5 +32,5 @@ void PeriodicLoop::init(int32_t frequency_hz) {
 
 void PeriodicLoop::update() {
     std::ostringstream s; s << name() << "::update(), loop_count_: " << loop_count_++;
-    logging::INFO(s.str());
+   // logging::INFO(s.str());
 }
