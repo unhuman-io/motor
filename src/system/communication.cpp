@@ -3,7 +3,8 @@
 #include "communication.h"
 #include <cstring>
 #include <messages.h>
-#include "easylogging++.h"
+#include <sstream>
+#include "logging.h"
 
 MotorCommand &Communication::get_command() {
     command_ = command_in_;
@@ -17,7 +18,7 @@ void Communication::send_message(Message *m) {
        s << std::hex << +(m->data[i]);
        s << " ";
     }
-    logging::WARN(s.str());
+   // logging::WARN(s.str());
     switch(m->type) {
         case MOTOR_COMMAND:
             //todo thread protect, maybe base on length or subtype

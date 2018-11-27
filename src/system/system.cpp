@@ -11,7 +11,7 @@
 #include "sensor/encoder.h"
 
 #include "messages.h"
-#include "easylogging++.h"
+//#include "easylogging++.h"
 
 System::System() : motor_status_() {
     pwm_ = new hal::PWM;
@@ -28,14 +28,14 @@ System::System() : motor_status_() {
 }
 
 System::~System() {
-    logging::WARN("~System()");
+//    logging::WARN("~System()");
     delete system_update_loop_;
     delete main_control_loop_;
     delete foc_control_loop_;
     delete communication_;
     delete pwm_;
     delete motor_encoder_;
-    logging::WARN("Done ~System()");
+//    logging::WARN("Done ~System()");
 }
 
 MotorStatus System::get_status() {

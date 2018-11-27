@@ -1,5 +1,5 @@
 #include "../hal/hal_fun.h"
-#include "easylogging++.h"
+//#include "easylogging++.h"
 
 namespace hal {
 

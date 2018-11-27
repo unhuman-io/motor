@@ -1,5 +1,5 @@
 #include "foc.h"
-#include "easylogging++.h"
+//#include "easylogging++.h"
 #include "hal_fun.h"
 #include "hal_adc.h"
 

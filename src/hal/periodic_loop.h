@@ -7,7 +7,9 @@
 #include <atomic>
 #include <string>
 
-#include <thread>
+namespace std {
+    class thread;
+}
 
 class PeriodicLoop {
 public:
