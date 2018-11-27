@@ -14,10 +14,7 @@ int main() {
     int i;
     // get color output on windows
 #ifdef _WIN32
-    HANDLE hStdout = GetStdHandle(STD_OUTPUT_HANDLE);
-    DWORD old_mode;
-    GetConsoleMode(hStdout, &old_mode);
-    SetConsoleMode(hStdout, old_mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING);
+    INIT_TERMINAL
 #endif
 
     HMotor *motor = create_motor_simulator();
