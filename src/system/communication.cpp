@@ -18,7 +18,7 @@ void Communication::send_message(Message *m) {
        s << std::hex << +(m->data[i]);
        s << " ";
     }
-   // logging::WARN(s.str());
+    logging::WARN(s.str().c_str());
     switch(m->type) {
         case MOTOR_COMMAND:
             //todo thread protect, maybe base on length or subtype

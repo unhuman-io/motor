@@ -1,7 +1,6 @@
 #include <messages.h>
 #include "simulator.h"
 
-#include "easylogging++.h"
 #include "system.h"
 #include "hal_adc.h"
 #include "motor_simulation.h"

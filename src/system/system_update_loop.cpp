@@ -1,8 +1,8 @@
 
 #include "system_update_loop.h"
-//#include "easylogging++.h"
+#include "logging.h"
 
 void SystemUpdateLoop::init() {
-//    logging::INFO("SystemUpdateLoop::init()");
+    logging::INFO("SystemUpdateLoop::init()");
     PeriodicLoop::init(5);
 }
