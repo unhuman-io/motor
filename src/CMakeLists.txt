@@ -1,5 +1,4 @@
 set(CMAKE_CXX_STANDARD 11)
-add_compile_definitions(ELPP_THREAD_SAFE ELPP_FORCE_USE_STD_THREAD)
 
 add_subdirectory(messages)
 add_subdirectory(hal)
