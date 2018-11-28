@@ -1,4 +1,5 @@
-#include "stm32f4xx.h" 
+#include "system_init.h"
+#include "stm32f446xx_local.h" 
 
 void system_clock_init() {
   RCC->CR |= ((uint32_t)RCC_CR_HSION);                     /* Enable HSI */

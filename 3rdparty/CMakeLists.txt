@@ -11,3 +11,14 @@ if(MCU_ARCH STREQUAL cortex-m4)
 else()
     target_include_directories(easylogging INTERFACE ${CMAKE_BINARY_DIR}/3rdparty/easylogging)
 endif()
+
+# Download just specific files as the repository is large
+set(CMSIS "https://raw.githubusercontent.com/ARM-software/CMSIS_5/5.4.0/CMSIS/")
+set(CMSIS_FILES core_cm4.h cmsis_version.h 
+                cmsis_compiler.h cmsis_gcc.h
+                mpu_armv7.h)
+foreach(file ${CMSIS_FILES})
+    file(DOWNLOAD "${CMSIS}/Core/Include/${file}" ${CMAKE_BINARY_DIR}/3rdparty/CMSIS/${file})
+endforeach(file)
+add_library(cmsis INTERFACE)
+target_include_directories(cmsis INTERFACE ${CMAKE_BINARY_DIR}/3rdparty/CMSIS)

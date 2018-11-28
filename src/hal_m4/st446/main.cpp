@@ -1,4 +1,4 @@
-#include "system.h"
+#include "system_init.h"
 #include "stm32f446xx_local.h"
 #include "pin_init.h"
 #include <cstdio>
@@ -18,7 +18,7 @@ int main (void) {
 	int32_t target_ms_time = 1000;
 	while(1) {
 		while(ms_ticks < target_ms_time);
-		std::printf("Hello World %d\n\r", ms_ticks);
+		std::printf("Hello World %ld\n\r", ms_ticks);
 		target_ms_time += 1000;
 		GPIOA->ODR ^= (1 << hw_param.led_gpio_num);
 	}

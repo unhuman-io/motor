@@ -31,8 +31,8 @@
    POSSIBILITY OF SUCH DAMAGE.
    ---------------------------------------------------------------------------*/
 
-#include "stm32f4xx.h"                  // Device header
-#include "RTE_Components.h"             // Component selection
+#include "stm32f446xx_local.h"                  // Device header
+//#include "RTE_Components.h"             // Component selection
 
 
 //-------- <<< Use Configuration Wizard in Context Menu >>> --------------------
