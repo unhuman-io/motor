@@ -1,6 +1,6 @@
 #add_subdirectory(control)
 
-add_library(system
+add_library(system STATIC
             system_update_loop.cpp system_update_loop.h
             main_control_loop.cpp main_control_loop.h
             foc_control_loop.cpp foc_control_loop.h

@@ -6,10 +6,10 @@ set(MCU_ARCH cortex-m4)
 set(MCU_FLOAT_ABI hard)
 set(MCU "-mcpu=${MCU_ARCH} -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=${MCU_FLOAT_ABI}")
 
-set(GCC_ARM_BIN_DIR "C:/Users/lee/Downloads/gcc-arm-none-eabi-7-2018-q2-update-win32/bin" CACHE PATH "GCC arm bin directory")
+find_path(GCC_ARM_BIN_DIR arm-none-eabi-gcc DOC "GCC arm bin directory")
 
-set(CMAKE_C_COMPILER ${GCC_ARM_BIN_DIR}/arm-none-eabi-gcc.exe)
-set(CMAKE_CXX_COMPILER ${GCC_ARM_BIN_DIR}/arm-none-eabi-g++.exe)
+set(CMAKE_C_COMPILER ${GCC_ARM_BIN_DIR}/arm-none-eabi-gcc)
+set(CMAKE_CXX_COMPILER ${GCC_ARM_BIN_DIR}/arm-none-eabi-g++)
 set(CMAKE_ASM_COMPILER "${GCC_ARM_BIN_DIR}/arm-none-eabi-gcc")
 
 set(CMAKE_C_COMPILER_WORKS 1)
